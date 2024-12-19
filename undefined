@@ -1,0 +1,31 @@
+```scala
+class MyClass(val x: Int) {
+  def myMethod(y: Int): Int = {
+    x + y
+  }
+}
+
+object Main extends App {
+  val obj = new MyClass(5)
+  val result = obj.myMethod(10) 
+  println(result) // Output: 15
+}
+```
+```scala
+// Solution using Option[Int]
+class MyClass(val x: Option[Int]) {
+  def myMethod(y: Int): Int = {
+    x.getOrElse(0) + y 
+  }
+}
+
+object Main extends App {
+  val obj1 = new MyClass(Some(5))
+  val result1 = obj1.myMethod(10) 
+  println(result1) // Output: 15
+
+  val obj2 = new MyClass(None)
+  val result2 = obj2.myMethod(10) 
+  println(result2) // Output: 10
+}
+```
